@@ -1,11 +1,17 @@
-// 生日数据存储在localStorage中
+// 生日数据和访问计数存储在localStorage中
 const BIRTHDAY_KEY = 'age_calculator_birthday';
+const VISIT_COUNT_KEY = 'age_calculator_visit_count';
 
 // DOM元素
 const birthdaySection = document.getElementById('birthday-section');
 const resultSection = document.getElementById('result-section');
 const birthdayInput = document.getElementById('birthday');
 const ageResultDiv = document.getElementById('age-result');
+
+// 创建访问计数器元素
+const visitCounterDiv = document.createElement('div');
+visitCounterDiv.className = 'visit-counter';
+document.querySelector('.container').appendChild(visitCounterDiv);
 
 // 按钮
 const saveBirthdayBtn = document.getElementById('save-birthday-btn');
@@ -148,8 +154,34 @@ function showResultSection() {
     resultSection.classList.add('active');
 }
 
+// 获取访问次数
+function getVisitCount() {
+    return parseInt(localStorage.getItem(VISIT_COUNT_KEY) || '0');
+}
+
+// 增加访问次数
+function incrementVisitCount() {
+    const count = getVisitCount() + 1;
+    localStorage.setItem(VISIT_COUNT_KEY, count.toString());
+    return count;
+}
+
+// 显示访问计数
+function updateVisitCounter() {
+    const count = incrementVisitCount();
+    visitCounterDiv.innerHTML = `<div class="milestone">这是您第 <span class="result-highlight">${count}</span> 次访问本页面</div>`;
+}
+
 // 初始化应用
 function initApp() {
+    // 更新访问计数
+    updateVisitCounter();
+    
+    // 初始化全局访问计数器
+    if (window.initGlobalCounter) {
+        window.initGlobalCounter();
+    }
+    
     // 检查是否已设置生日
     const birthday = getBirthday();
     if (birthday) {

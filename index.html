@@ -499,6 +499,7 @@
     </div>
 
     <script src="app.js"></script>
+    <script src="counter.js"></script>
     <script>
         // 创建星星效果
         document.addEventListener('DOMContentLoaded', function() {
@@ -536,6 +537,11 @@
         });
     </script>
     <script>
+        // 初始化全局访问计数器
+        window.addEventListener('DOMContentLoaded', function() {
+            initGlobalCounter();
+        });
+        
         // 粒子背景配置
         document.addEventListener('DOMContentLoaded', function() {
             particlesJS("particles-js", {
