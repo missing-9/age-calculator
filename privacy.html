@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 - 精确年龄计算器</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('images/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(249, 239, 255, 0.7) 0%, rgba(161, 196, 253, 0.7) 25%, rgba(255, 206, 243, 0.7) 50%, rgba(255, 154, 139, 0.7) 75%, rgba(161, 127, 224, 0.7) 100%);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+            z-index: -1;
+            filter: blur(1px);
+        }
+        
+        @keyframes gradientBackground {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 0 25px rgba(255, 105, 180, 0.15);
+            padding: 35px;
+            width: 95%;
+            max-width: 800px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        h1 {
+            color: #6a5acd;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+            padding-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FF6A88, #FF99AC, #83a4d4, transparent);
+            animation: rainbowBorder 3s linear infinite;
+            background-size: 200% 100%;
+        }
+        
+        @keyframes rainbowBorder {
+            0% {background-position: 0% 50%;}
+            100% {background-position: 100% 50%;}
+        }
+        
+        h2 {
+            color: #6a5acd;
+            margin-top: 25px;
+        }
+        
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #83a4d4, #b6fbff);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(131, 164, 212, 0.4);
+        }
+        
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>隐私政策</h1>
+        
+        <p>最后更新日期：2025年3月9日</p>
+        
+        <p>感谢您使用精确年龄计算器。我们重视您的隐私，并致力于保护您的个人信息。本隐私政策旨在向您说明我们如何收集、使用和保护您的信息。</p>
+        
+        <h2>信息收集</h2>
+        <p>我们的年龄计算器应用程序仅在您的浏览器中运行，所有计算都在您的设备上完成。我们不会收集、存储或传输您输入的出生日期或任何其他个人信息到我们的服务器。</p>
+        
+        <h2>Cookie和本地存储</h2>
+        <p>我们使用浏览器的本地存储功能来保存您的偏好设置，以便您下次访问时能够获得更好的体验。这些数据仅存储在您的设备上，不会被发送到我们的服务器。</p>
+        
+        <h2>第三方服务</h2>
+        <p>我们使用以下第三方服务：</p>
+        <ul>
+            <li>不蒜子统计：用于统计网站访问量，可能会收集匿名使用数据</li>
+        </ul>
+        
+        <h2>数据安全</h2>
+        <p>由于我们不收集您的个人信息，因此不存在数据泄露的风险。您在我们网站上输入的所有信息都只在您的设备上处理。</p>
+        
+        <h2>隐私政策的变更</h2>
+        <p>我们可能会不时更新我们的隐私政策。任何变更都将在本页面上发布，并在顶部更新"最后更新日期"。</p>
+        
+        <h2>联系我们</h2>
+        <p>如果您对我们的隐私政策有任何疑问，请通过以下方式联系我们：</p>
+        <p>电子邮件：privacy@okagecalculator.example.com</p>
+        
+        <a href="index.html" class="back-button">返回主页</a>
+        
+        <footer>
+            <p>© 2025 精准年龄计算器 | 保留所有权利</p>
+        </footer>
+    </div>
+</body>
+</html> 
