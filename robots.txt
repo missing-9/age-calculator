@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://okagecalculator.netlify.app/sitemap.xml

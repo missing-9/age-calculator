@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="实际岁数,周岁计算器,虚岁计算器,生日天数计算,虚岁怎么算,年龄计算器" />
     <meta name="description" content="本工具可快速查询您的周岁与虚岁" />
+    <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  
+  <!-- Open Graph 标签 (用于社交媒体分享) -->
+  <meta property="og:title" content="精确年龄计算器">
+  <meta property="og:description" content="准确计算年龄的专业工具">
+  <meta property="og:image" content="https://okagecalculator.netlify.app/logo.svg">
+  <meta property="og:url" content="https://okagecalculator.netlify.app/">
+  <meta property="og:type" content="website">
+  
     <title>精确年龄计算器</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -100,7 +111,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, #FF9A8B, #FF6A88, #FF99AC, #83a4d4, #b6fbff, #FFDDE1);
+            background: linear-gradient(90deg, #FF9A8B, #FF6A88, #FF99AC, #83a4d4, transparent);
             background-size: 300% 100%;
             animation: gradientMove 6s linear infinite;
         }
@@ -111,15 +122,19 @@
         }
         h1 {
             color: #6a5acd;
-            margin-bottom: 25px;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
             position: relative;
-            display: inline-block;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+            padding-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+        
         h1::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: 0;
             left: 0;
             width: 100%;
             height: 2px;
@@ -242,6 +257,9 @@
             transform: translateZ(0);
             will-change: transform;
             animation: float 6s ease-in-out infinite;
+            box-sizing: border-box;
+            max-width: 100%;
+            word-wrap: break-word;
         }
         
         @keyframes float {
@@ -409,6 +427,77 @@
             pointer-events: none;
         }
         
+        /* 修改logo容器样式 */
+        .logo-container {
+            text-align: center;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 2;
+            width: 200px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .logo-container img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* 添加分隔线样式 */
+        .divider {
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #FF6A88, #FF99AC, #83a4d4, transparent);
+            margin: 15px 0 25px;
+            position: relative;
+            border-radius: 3px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 新的渐变分隔线样式 */
+        .gradient-divider {
+            width: 100%;
+            height: 10px;
+            margin: 15px 0 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gradient-line {
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #FF6A88, #FF99AC, #83a4d4, transparent);
+            position: relative;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(255, 106, 136, 0.3);
+            animation: gradientMove 6s linear infinite;
+            background-size: 200% 100%;
+        }
+        
+        .gradient-line::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: radial-gradient(circle, rgba(255, 106, 136, 0.3) 0%, transparent 70%);
+            filter: blur(5px);
+        }
+        
         @keyframes shine {
             0% { left: -100%; }
             20% { left: 100%; }
@@ -467,37 +556,46 @@
 </head>
 <body>
     <div id="particles-js"></div>
-    <div class="wave-container">
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-    </div>
     <div class="stars" id="stars"></div>
     <div class="container">
         <div class="shine"></div>
+        
+        <div class="logo-container">
+            <img src="images/logo.svg" alt="精确年龄计算器">
+        </div>
 
+        <h1>您的人生时光</h1>
+        
+        <div class="gradient-divider">
+            <div class="gradient-line"></div>
+        </div>
+        
         <!-- 生日设置部分 -->
         <div id="birthday-section" class="birthday-section active">
-            <h1>记录您的生命起点</h1>
-            <div class="form-group">
-                <label for="birthday">您的生日</label>
-                <input type="datetime-local" id="birthday">
+            <div class="section-content">
+                <div class="form-group">
+                    <label for="birthday">您的生日</label>
+                    <input type="datetime-local" id="birthday">
+                </div>
+                <div class="milestone">这一刻将成为您人生旅程的起点，我们将为您记录每一个珍贵的时刻。</div>
+                <button id="save-birthday-btn">开启我的时光之旅</button>
             </div>
-            <div class="milestone">这一刻将成为您人生旅程的起点，我们将为您记录每一个珍贵的时刻。</div>
-            <button id="save-birthday-btn">开启我的时光之旅</button>
-
         </div>
 
         <!-- 结果显示部分 -->
         <div id="result-section" class="result-section">
-            <h1>您的人生时光</h1>
-            <div class="time-journey">
-                <div class="time-progress" id="life-progress"></div>
+            <div class="section-content">
+                <div class="time-journey" style="width: 100%; max-width: 100%; box-sizing: border-box;">
+                    <div class="time-progress" id="life-progress"></div>
+                </div>
+                <div id="age-result" class="result" style="width: 100%; max-width: 100%; box-sizing: border-box; overflow: hidden;"></div>
+                <button id="reset-birthday-btn" class="reset-btn">重置生日</button>
             </div>
-            <div id="age-result" class="result"></div>
-            <button id="reset-birthday-btn" class="reset-btn">重置生日</button>
-
         </div>
+
+        <footer>
+            <p>© 2025 精准年龄计算器 | <a href="privacy.html">隐私政策</a></p>
+          </footer>
     </div>
 
     <script src="app.js"></script>
@@ -660,3 +758,20 @@
     </script>
 </body>
 </html>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "精准年龄计算器",
+  "description": "准确计算年龄的专业工具",
+  "url": "https://okagecalculator.netlify.app/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "CNY"
+  }
+}
+</script>

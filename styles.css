@@ -1,0 +1,277 @@
+/* 基础样式 */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    backdrop-filter: blur(4px);
+    max-width: 600px;
+    width: 90%;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Logo样式 */
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.logo-container img {
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    transition: transform 0.3s ease;
+}
+
+.logo-container img:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+/* 表单样式 */
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+input[type="datetime-local"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    background: white;
+}
+
+input[type="datetime-local"]:focus {
+    border-color: #4299e1;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* 结果显示样式 */
+.result-section {
+    display: none;
+}
+
+.result-section.active {
+    display: block;
+}
+
+.birthday-section {
+    display: none;
+}
+
+.birthday-section.active {
+    display: block;
+}
+
+.time-milestone {
+    font-size: 1.2rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.time-details {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.result-highlight {
+    color: #4f46e5;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.life-stage {
+    background: rgba(79, 70, 229, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.stage-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.5rem;
+}
+
+/* 进度条样式 */
+.time-journey {
+    background: #e2e8f0;
+    height: 8px;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+}
+
+.time-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #4f46e5, #6366f1);
+    transition: width 0.5s ease;
+    border-radius: 4px;
+}
+
+/* 访问计数器样式 */
+.visit-counter {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #718096;
+}
+
+/* 重置按钮样式 */
+.reset-btn {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    margin-top: 1rem;
+}
+
+.reset-btn:hover {
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+}
+
+/* 动画效果 */
+.shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 1.5rem;
+        margin: 10px;
+    }
+
+    .time-details {
+        font-size: 1rem;
+    }
+
+    .result-highlight {
+        font-size: 1.2rem;
+    }
+
+    .time-milestone {
+        font-size: 1.1rem;
+    }
+
+    .stage-icon {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* 星星背景效果 */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: twinkle 1s infinite alternate;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.8; }
+}
+
+/* 新增样式 */
+.section-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.birthday-section,
+.result-section {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
